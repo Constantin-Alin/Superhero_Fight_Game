@@ -1,4 +1,5 @@
 import colors.Color;
+import utils.Wait;
 
 import java.util.Random;
 
@@ -13,7 +14,7 @@ public class Superhero {
         this.damage = damage;
     }
 
-    public void fight(Superhero superhero) throws InterruptedException {
+    public void fight(Superhero superhero) {
         Random rnd = new Random();
         while (true) {
             if (this.health <= 0) {
@@ -29,11 +30,11 @@ public class Superhero {
             int chance = rnd.nextInt(11);
             if (chance <= 5) {
                 this.health -= superhero.damage;
-                Thread.sleep(1000);
+                Wait.waitInSeconds(1);
                 System.out.println(Color.colorText(superhero.name, Color.YELLOW) + " hits " + Color.colorText(this.name, Color.BLUE) +  " with a damage of " + superhero.damage + ". " + Color.colorText(this.name, Color.BLUE) + " health is now " + this.health);
             } else {
                 superhero.health -= this.damage;
-                Thread.sleep(1000);
+                Wait.waitInSeconds(1);
                 System.out.println(Color.colorText(this.name, Color.BLUE) +  " hits " + Color.colorText(superhero.name, Color.YELLOW) + " with a damage of " + this.damage + ". " + Color.colorText(superhero.name, Color.YELLOW) + " health is now " + superhero.health);
             }
         }
