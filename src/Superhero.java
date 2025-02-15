@@ -14,8 +14,6 @@ public class Superhero {
     }
 
     public void fight(Superhero superhero) throws InterruptedException {
-        // Cel care cheama metoda: this.name
-        // Cel care este parametru: superhero.name
         Random rnd = new Random();
         while (true) {
             if (this.health <= 0) {
